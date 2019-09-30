@@ -1,0 +1,29 @@
+.footer{
+    width: 100%;
+    height: auto;
+    background: var(--color-bgrey);
+    padding: 1em;
+}
+
+.content-footer{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    @include mq(l){
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    }
+    .social-media{
+        text-align: center;
+        padding: 0 1em;
+        @include mq(s){ 
+        border-right: 1px solid grey;
+        border-left: 1px solid grey;
+        }
+    }
+    .footer-creditos{
+        padding: 0 1em;
+        text-align: center;
+    }
+}

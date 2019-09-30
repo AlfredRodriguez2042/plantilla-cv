@@ -1,0 +1,26 @@
+/*
+This boilerplate is based in ITCSS and SMACSS
+*/
+// Base / reset
+@import './base/base';
+
+// Variables  and Mixins
+@import './helpers/variables';
+@import './helpers/mixins';
+
+// Components / modules 
+//@import './components/user';
+//@import './components/logo';
+@import './components/menu';
+@import './components/header';
+@import './components/footer';
+//@import './components/buttons';
+
+// Layout 
+@import './layout/layout';
+
+// Pages
+// @import './pages/';
+
+// Theme
+@import './theme/tipography';
