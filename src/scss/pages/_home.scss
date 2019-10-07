@@ -1,0 +1,7 @@
+.content-about{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    @include mq(m){
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

@@ -1,0 +1,18 @@
+// Aplicar color
+body{
+  color: var(--color-text);
+}
+.color{
+    color:var(--color)
+  }
+  
+  // Combinaciones
+  
+  .color-first{
+    --color: var(--color-first);
+    background-color: var(--color-first);
+  }
+
+  .color-bgrey{
+    background-color: var(--color-bgrey);
+  }
