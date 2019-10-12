@@ -15,7 +15,8 @@ This boilerplate is based in ITCSS and SMACSS
 @import './components/header';
 @import './components/footer';
 @import './components/banner';
-//@import './components/buttons';
+@import './components/alt-banner';
+@import './components/buttons';
 
 // Layout 
 @import './layout/layout';

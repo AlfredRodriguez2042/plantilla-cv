@@ -7,10 +7,17 @@
 .banner-title{
     font-size: 2rem;
     margin-bottom: 1em;
-    @include mq(l){
+    @include mq(xl){
         font-size: 3rem;
     }
 }
 .banner-subtitle{
     font-size: 1.5rem;
+}
+.alt-banner-title{
+    font-size: 2rem;
+    margin-bottom: .5em;
+}
+p{
+    margin-bottom: 1rem;
 }

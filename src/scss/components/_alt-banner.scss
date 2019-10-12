@@ -1,0 +1,83 @@
+.alt-banner{
+    --radius : 1200px;
+    --size: 100%;
+    --image: url('https://i.imgur.com/aBlu9Gy.png');
+    --padding: 2rem;
+    padding-top: var(--padding);
+    padding-bottom: var(--padding);
+    background: linear-gradient(rgba(black, .9),rgba(black, .9)), var(--image) no-repeat center center / cover;
+    display: block;
+
+    @include mq(l){
+        --padding: 6rem;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 95%);
+        
+    }
+    @include mq(xl){
+        --radius: 1300px;
+        border-bottom: 1px solid var(--color-border);
+        background: radial-gradient(circle var(--radius) at 100% 100%, transparent 50%, #f6f6f6 50%), var(--image) no-repeat center right / auto var(--size);
+    
+    }
+    @include mq(xxl){
+        --radius: 1600px;
+        --size: 120%;
+    }
+
+    .grid{
+        @include mq(xl){ 
+        --rem: 2rem;
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(2,calc((100% - var(--rem)*1)/2));
+        max-width: 64em;
+        margin-right: auto;
+        margin-left: auto;
+        box-sizing: border-box;
+        }
+    }
+
+    &-title{
+        
+
+    }
+
+    &-data{
+        position: relative;
+        text-align: center;
+        font-size: 1rem;
+        line-height: 2em;
+        @include mq(xl){
+            padding: 1rem 1rem 1rem 2rem;
+            text-align: left;
+            &::before{
+                position: absolute;
+                border-radius: 4px;
+                content: "";
+                width: .5em;
+                height: 100%;
+                top: 0;
+                left: 0;
+                background: var(--color);
+            }
+        }
+
+    }
+
+    &-caption{
+        position: absolute;
+        bottom: -5rem;
+        right: 0;
+        background: var(--color-dark);
+        z-index: 50;
+        color: var(--color-text-light);
+        padding: .5rem;
+        font-size: .9rem;
+        display: none;
+        @include mq(l){
+            display: block;
+        }
+    }
+
+
+}

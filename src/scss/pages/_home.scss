@@ -1,7 +1,35 @@
 .content-about{
+    padding: 4em 1em;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     @include mq(m){
-        grid-template-columns: repeat(3, 1fr);
+        padding: 6em 2em;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @include mq(l){
+        grid-template-columns: repeat(3,1fr);
+    }
+
+    .skills{
+        padding: 2em;
+    }
+    .skill{
+        margin-bottom: 2em;
+        
+    }
+    .skill-title{
+        margin-bottom: 1em;
+    }
+    .text-number{
+        background: var(--color-bgrey);
+        border-radius: 50%;
+        padding: 2px 8px;
+        text-align: center;
+        box-shadow: 0 0 6px 0 var(--color-dark);
+        color: var(--color-text-light);
+        margin-right: .6em;
+    }
+    .skill-description{
+        padding-left: 2.5em;
     }
 }

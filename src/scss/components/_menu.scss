@@ -30,6 +30,7 @@
         a{
             color: white;
             text-decoration: none;
+            
             @include mq(l){
                 color: var(--color-text);
                 line-height: 1em;
