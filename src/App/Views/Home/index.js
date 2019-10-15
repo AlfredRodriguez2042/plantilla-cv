@@ -1,7 +1,29 @@
-import React from 'react'
-import Banner from '../../Components/Banner'
+import React,{useEffect,useState} from 'react'
+import { connect } from 'react-redux'
 
-const Home = () => {
+import { Data } from './Data'
+
+import Banner from '../../Components/Banner'
+import Repositories from '../../Components/Repositories'
+import CustChart, { CustChart2 } from './CustChart'
+
+
+
+
+const Home = ({repositories}) => {
+    const [useRepo, setRepo] =useState([])
+
+    function getRepo(){
+        fetch('https://jsonplaceholder.typicode.com/users')
+        .then(response=>response.json())
+        .then(res =>setRepo(res))
+        .catch(err=>console.log(err))
+    }
+    
+    useEffect(()=>{
+       // getRepo()
+        
+    },[])
     return (
         <div>
             <Banner
@@ -42,9 +64,46 @@ const Home = () => {
                     </div>
                 </div>
             </section>
+            <div>
+                {console.log(repositories)}
+            </div>
+            <div className="charts">
+                <div className="chart">
+                <CustChart
+                uno='JavaScript'
+                />
+                </div>
+
+                <div className="chart">
+                <CustChart2
+                title="Amazon Web Service"
+                percent={50}
+                subtitle='development'
+                color='#FBA905'
+                />
+                </div>
+            </div>
+            <div className="porfolio">
+               { Data.map((data,i)=>(
+                   <div className="porfolio-data" key={i}>
+                       <div className="porfolio-image">
+                           <img src={data.url} alt={data.name}/>
+                       </div>
+                       <h3 className="porfolio-title">{data.name}</h3>
+                       <p className="porfolio-description">{data.description}</p>
+
+                   </div>
+  
+               ))}
+
+            </div>
             
         </div> 
     )
 }
 
-export default Home
+const mapStateToProps = state =>({
+    repositories: state.repositories
+})
+
+export default connect(mapStateToProps,{})(Home)

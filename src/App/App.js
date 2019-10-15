@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
-import { Provider } from 'react-redux'
 
 //Styles
 import '../scss/main.scss'
@@ -9,10 +8,11 @@ import AppRouter from './Routes/AppRouter'
 import Header from './Components/Navigation/Header'
 import Footer from './Components/Footer'
 
+
 const App = ()=>{
     const [loading,load] = useState(true)
     return(
-        <>
+        
         <Router>
             <Header/>
             <div className="ctn">
@@ -20,7 +20,7 @@ const App = ()=>{
             </div>
             <Footer/>
         </Router>
-        </>
+       
     )
 }
 
