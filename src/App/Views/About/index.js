@@ -1,7 +1,35 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Button from '../../Components/Button'
+import 'animate.css'
+import { Language, Framework, Repositories } from './Data'
+
+
+
+
+const onObserve = (options)=>{
+    const [visible, setVisible] = useState(false)
+    const ref = React.useRef()
+     useEffect(()=>{ 
+      
+       const observer =  new IntersectionObserver(([entry])=>{
+                  setVisible(entry.isIntersecting)
+                  console.log('llamado')
+              },options)
+              if(ref.current){ 
+            observer.observe(ref.current)
+              }  
+         return ()=>{
+            if(ref.current){
+                observer.unobserve(ref.current)
+            }
+         }
+   },)
+   return [ref,visible]
+}
 
 const About = () => {
+        const [ref, visible] = onObserve({ threshold: 0.2})
+  
     return (
         <div>
             <div className="alt-banner color-first">
@@ -25,7 +53,88 @@ const About = () => {
                 </div>
 
             </div>
-            
+           <section className="study">
+               <div className="study-title">
+                   <h2>Formacion Academica</h2>
+               </div>
+               <div className="study-data">
+                   <div className="study-image">
+                       <img src="https://res.cloudinary.com/dcyjlkfuh/image/upload/v1571289493/studi-svg.svg" alt="img-study"/>
+                   </div>
+                   <div className="study-info">
+                       <h3 className="study-subtitle">UTN</h3>
+                       <p>Estudie un curso de desarrollo web, donde vimos como utilizar herramientas de Diseño tales como Photoshop, Ilustrator entre otros.. <br/> Tambien vimos programacion usando el Stack Lamp(Linux, Apache, Mysql y Php), tambien usamos el Framework  de Angular como tecnologia del front-end </p>
+                       <h3 className="study-subtitle">EDteam</h3>
+                       <p>Luego de terminar el curso complete mis conocimientos en el desarrollo web usando la plataforma de estudio virtual EDteam.<br/> Estudie la Especialidad de React un curso completo <br/> Servidores Linux <br/> Estudie Amazon Web Services donde aprendi a usar los servicios de EC2, Route53 , IAM, S3, etc.. </p>
+                   </div>
+               </div>
+
+            </section> 
+              <div className="title rotateIn"><h2>HABILIDADES</h2></div>
+            <section className="abilities " ref={ref}>
+               { Language.map((leng,i)=>(
+                   
+                    <div className="abilities-card" key={i}>
+                    <div className="abilities-box">
+                <div className="abilities-percent">
+                    <div className="rotate"  >
+                   {
+                       visible ?
+                       <svg className="svg" >
+                    <circle cx="70" cy="70" r="70"></circle>
+                    <circle cx="70" cy="70" r="70"></circle>
+                </svg> :null
+                   }
+                </div>
+                <div className="abilities-number">
+                    <h2>{leng.percent}<span>{leng.simbol}</span> </h2>
+                </div>
+                </div>
+                <h2 className="abilities-text">{leng.name}</h2>
+                </div>
+                </div>
+               ))}
+               
+               { Framework.map((fram,i)=>(
+                   <div className="abilities-card " key={i}>
+                   <div className="abilities-box">
+               <div className="abilities-percent">
+                   <div className="rotate">
+                     {
+                         visible?
+                         <svg className="svg" >
+                    <circle cx="70" cy="70" r="70"></circle>
+                    <circle cx="70" cy="70" r="70"></circle>
+                </svg>:null
+                     }
+               </div>
+               <div className="abilities-number">
+                   <h2>{fram.percent}<span>{fram.simbol}</span> </h2>
+               </div>
+               </div>
+               <h2 className="abilities-text">{fram.name}</h2>
+               </div>
+               </div>
+               ))}
+                
+            </section>
+
+            <section>
+                <div className="title"><h2>PROYECTOS PROPIOS</h2></div>
+                <div className="porfolio" >
+               { Repositories.map((data,i)=>(
+                   <div className="porfolio-data" key={i}>
+                       <div className="porfolio-image">
+                           <img src={data.url} alt={data.name}/>
+                       </div>
+                       <h3 className="porfolio-title">{data.name}</h3>
+                       <p className="porfolio-description">{data.description}</p>
+
+                   </div>
+  
+               ))}
+               </div>
+            </section>
         </div>
     )
 }

@@ -21,3 +21,25 @@
 p{
     margin-bottom: 1rem;
 }
+
+.study-title{
+    text-align: center;
+    margin-bottom: 2em;
+    @include mq(xl){
+        margin-bottom: 3em;
+        font-size: 1.5em;
+    }
+}
+.study-subtitle{
+    margin-bottom: .5em;
+    @include mq(xl){
+        font-size: 1.5rem;
+    }
+}
+.title{
+    text-align: center;
+    margin-bottom: 2em;
+    @include mq(xxl){
+        margin-bottom: 3em;
+    }
+}

@@ -17,6 +17,8 @@ This boilerplate is based in ITCSS and SMACSS
 @import './components/banner';
 @import './components/alt-banner';
 @import './components/porfolio';
+@import './components/study';
+@import './components/abilities';
 @import './components/buttons';
 
 // Layout 
@@ -24,6 +26,7 @@ This boilerplate is based in ITCSS and SMACSS
 
 // Pages
  @import './pages/home';
+ 
 
 // Theme
 @import './theme/colors';

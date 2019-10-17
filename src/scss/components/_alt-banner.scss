@@ -5,8 +5,9 @@
     --padding: 2rem;
     padding-top: var(--padding);
     padding-bottom: var(--padding);
-    background: linear-gradient(rgba(black, .9),rgba(black, .9)), var(--image) no-repeat center center / cover;
+    background: linear-gradient(rgba(#191919, .9),rgba(#191919, .9)), var(--image) no-repeat center center / cover;
     display: block;
+    margin-bottom: var(--padding);
 
     @include mq(l){
         --padding: 6rem;

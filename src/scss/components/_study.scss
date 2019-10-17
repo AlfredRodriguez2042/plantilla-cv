@@ -1,0 +1,28 @@
+.study{
+    padding: 0 2em;
+    margin-bottom: 2em;
+    &-data{
+         @include mq(l){
+        display: grid;
+        gap: 2em;
+        grid-template-columns: repeat(2,1fr);
+         }
+    }
+   
+    &-image{
+       display: none;
+       box-sizing: border-box;
+       overflow: hidden;
+       @include mq(m){
+           display: block;
+           margin-bottom: 2em;
+       }
+    }
+    &-info{
+        --padding: 2rem;
+        padding: var(--padding);
+        @include mq(xxl){
+            padding: calc(4*var(--padding));
+        }
+    }
+}

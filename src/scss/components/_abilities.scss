@@ -1,0 +1,137 @@
+.abilities{
+    padding: 0 4em;
+    margin-bottom: 4em;
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    transition: all .2s;
+   // display: none;
+    @include mq(xxl){
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-auto-flow: row dense;
+    }
+    
+    &-card{
+        position: relative;
+        width: 250px;
+        height: 300px;
+       // background: linear-gradient(0deg, #1b1b1b,#222,#1b1b1b);
+        border: 1px solid var(--color-text);
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 2em;
+        &:hover .abilities-percent .abilities-number{
+            color: var(--color-dark);
+            font-size: 1.3em;
+        }
+        &:hover .abilities-text{
+            color: var(--color-dark);
+            font-size: 1.6em;
+        }
+        
+    }
+    .rotate{
+        transform: rotate(-90deg);
+    }
+    .svg{
+        position: relative;
+        width: 150px;
+        height: 150px;
+        z-index: 100;
+        circle{
+            width: 100%;
+            height: 100%;
+            fill: none;
+           // stroke: #191919;
+            stroke-width: 10;
+            stroke-linecap: round;
+            transform: translate(5px, 5px);
+            
+        }
+    }
+    
+    &-percent{
+        position: relative;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+       // box-shadow: inset 0 0 50px #000;
+        text-align: center;
+    }
+    &-number{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.5s;
+    }
+    &-text{
+        margin-top: 1em;
+    }
+
+    .svg circle:nth-child(2){
+        stroke-dasharray: 440;
+        stroke-dashoffset: 440;
+    }
+    &-card:nth-child(1) .svg circle:nth-child(2){
+       
+        stroke-dashoffset: 44;
+        stroke: #ff4500;
+        animation: percent 2s;
+    }
+    &-card:nth-child(2) .svg circle:nth-child(2){
+        stroke-dashoffset: 44;
+        stroke: #00a1ff;
+        animation: percent 2s;
+    }
+    &-card:nth-child(3) .svg circle:nth-child(2){
+        stroke-dashoffset: 110;
+        stroke: orange;
+        animation: percent 2s;
+    }
+    &-card:nth-child(4) .svg circle:nth-child(2){
+        stroke-dashoffset: 264;
+        stroke: #777bb3;
+        animation: percent 2s;
+    }
+    &-card:nth-child(5) .svg circle:nth-child(2){
+        stroke-dashoffset: 264;
+        stroke: #3970a2;
+        animation: percent 2s;
+    }
+    &-card:nth-child(6) .svg circle:nth-child(2){
+        stroke-dashoffset: 176;
+        stroke: #7cb840;
+        animation: percent 2s;
+    }
+    &-card:nth-child(7) .svg circle:nth-child(2){
+        stroke-dashoffset: 264;
+        stroke: #de1d23;
+        animation: percent 2s;
+    }
+    &-card:nth-child(8) .svg circle:nth-child(2){
+        stroke-dashoffset: 132;
+        stroke: #5ed3f0;
+        animation: percent 2s;
+    }
+
+   
+}
+@keyframes percent {
+    0%{
+        stroke-dashoffset: 400;
+    } 80% {
+        stroke-dashoffset: 0;
+    } 
+}
+
