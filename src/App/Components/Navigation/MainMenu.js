@@ -21,9 +21,9 @@ const MainMenu = () => {
                 <li className="menu__item"> <NavLink  exact to="/about">About</NavLink> </li>
                 <li className="menu__item"> <NavLink  exact to="/contact">Contact</NavLink> </li>
             
-           
+           { /*
                 <li className="menu__item"> <NavLink  exact to="/signin">SignIn</NavLink> </li>
-                <li className="menu__item"> <NavLink  exact to="/signup">SignUp</NavLink> </li>
+           <li className="menu__item"> <NavLink  exact to="/signup">SignUp</NavLink> </li>  */}
             </ul>
         </nav>
        

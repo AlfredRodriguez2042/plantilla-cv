@@ -1,0 +1,21 @@
+.contact{
+    @include mq(l){
+      //  padding: 0 4em;
+    }
+    @include mq(xl){
+        //padding: 0 6em;
+    }
+    .grid{
+       // padding: 0 6em;
+        @include mq(m){
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+           // padding: 0 2em;
+        }
+        @include mq(xl){
+          //  width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+}

@@ -1,8 +1,10 @@
 .main__header{
     width: 100%;
-    background: var(--color-bgrey);
+    background: white;
+    box-shadow: 0px 0px 3px 1px gray;
     height: 80px;
     @include mq(l){
+        background: var(--color-bgrey);
         display: flex;
         justify-content: space-between;
         align-items: center;

@@ -1,0 +1,14 @@
+.contact-social-media{
+    margin: 1em;
+    padding: 1em;
+    .social-media{
+        margin-left: 2.5em;
+    }
+    .social-item{
+        line-height: 2em;
+        list-style: none;
+        a{
+            text-decoration: none;
+        }
+    }
+}

@@ -1,5 +1,6 @@
 import React,{useEffect,useState} from 'react'
 import { connect } from 'react-redux'
+import Button from '../../Components/Button'
 
 import { Data } from './Data'
 
@@ -27,7 +28,7 @@ const Home = ({repositories}) => {
     return (
         <div>
             <Banner
-            color="color-bgrey"
+           // color="color-first"
             image={{
                 src:"https://i.imgur.com/aBlu9Gy.png",
                 alt:"banner-home"
@@ -36,15 +37,19 @@ const Home = ({repositories}) => {
             subtitle="Aprendamos juntos a desarrollar aplicaiones"
             />
             <section>
-                <div className="content-about">
+                <div className="content-about color-first">
                     <div className="skills">
                         <div className="skill">
                         <h3 className="skill-title" ><span className="text-number" >1</span>Operating System</h3>
-                        <p className="skill-description" > Uso y Administracion de los recursos de la computadora, dentro de nuestro sistema operativo sea Windows/Linux (preferentemente Linux )</p>
+                        <p className="skill-description" > Uso y Administracion de los recursos de la computadora, dentro de nuestro sistema operativo sea Windows/Linux (preferentemente Linux ).</p>
+                        <p className="skill-description"> <Button content="View more" color="btn-ghost" url="/system"/>
+                        </p>
                         </div>
                         <div>
                             <h3 className="skill-title" ><span className="text-number" >2</span>Cloud Computing </h3>
                             <p className="skill-description" >Un conjunto de recuros informaticos virtualizados y compartidos para ser usados bajo demanda, que pueden ser desplegados de manera Segura, Rapida y Escalable.</p>
+                            <p className="skill-description"> <Button content="View more" color="btn-ghost" url="/cloud"/>
+                            </p>
                         </div>
 
                     </div>
@@ -55,11 +60,16 @@ const Home = ({repositories}) => {
                     <div className="skill">
                         <h3 className="skill-title" > <span className="text-number" >3</span>Programing </h3>
                         <p className="skill-description" >Basicamente es decirle a tu computadora que es lo que quieres que haga por ti y donde el limite es tu imaginacion.</p>
+                        <p className="skill-description"> <Button content="View more" color="btn-ghost" url="/programing"/>
+                        </p>
+                        
 
                     </div>
                     <div className="skill">
                         <h3 className="skill-title" ><span className="text-number" >4</span>Desing </h3>
-                        <p className="skill-description" >Todos podemos crear y diseñar webs increibles. Las tendencias del Dieseño pueden cambiar tan rapido como surgieron</p>
+                        <p className="skill-description" >Todos podemos crear y diseñar webs increibles. Las tendencias del Dieseño pueden cambiar tan rapido como surgieron.</p>
+                        <p className="skill-description"> <Button content="View more" color="btn-ghost" url="/desing"/>
+                        </p>
                     </div>
                     </div>
                 </div>
@@ -67,37 +77,7 @@ const Home = ({repositories}) => {
             <div>
                 {console.log(repositories)}
             </div>
-            <div className="charts">
-                <div className="chart">
-                <CustChart
-                uno='JavaScript'
-                />
-                </div>
-
-                <div className="chart">
-                <CustChart2
-                title="Amazon Web Service"
-                percent={50}
-                subtitle='development'
-                color='#FBA905'
-                />
-                </div>
-            </div>
-            <div className="porfolio">
-               { Data.map((data,i)=>(
-                   <div className="porfolio-data" key={i}>
-                       <div className="porfolio-image">
-                           <img src={data.url} alt={data.name}/>
-                       </div>
-                       <h3 className="porfolio-title">{data.name}</h3>
-                       <p className="porfolio-description">{data.description}</p>
-
-                   </div>
-  
-               ))}
-
-            </div>
-            
+                       
         </div> 
     )
 }

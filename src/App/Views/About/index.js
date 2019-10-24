@@ -1,35 +1,38 @@
 import React, { useEffect, useState } from 'react'
 import Button from '../../Components/Button'
-import 'animate.css'
+//import 'animate.css'
 import { Language, Framework, Repositories } from './Data'
 
-
-
-
-const onObserve = (options)=>{
-    const [visible, setVisible] = useState(false)
-    const ref = React.useRef()
-     useEffect(()=>{ 
-      
-       const observer =  new IntersectionObserver(([entry])=>{
-                  setVisible(entry.isIntersecting)
-                  console.log('llamado')
-              },options)
-              if(ref.current){ 
-            observer.observe(ref.current)
-              }  
-         return ()=>{
-            if(ref.current){
-                observer.unobserve(ref.current)
-            }
-         }
-   },)
-   return [ref,visible]
-}
+  
 
 const About = () => {
-        const [ref, visible] = onObserve({ threshold: 0.2})
-  
+    const [visible, setVisible] = useState(false)
+        
+    
+       const animate = React.useRef()
+    
+        const animation = ()=>{
+            let options = {
+               // root: document.querySelector('body'),
+               // threshold: 0.5,
+                rootMargin: ' 0px 0px 300px 0px',
+            }
+            const callback = (entries, observe)=>{
+                //console.log(entries[0].isIntersecting)
+              if(entries[0].isIntersecting){
+                 setVisible(true)
+              }else{
+                setVisible(false)
+              }
+            }
+            const observer = new IntersectionObserver( callback,options)
+            observer.observe(animate.current)
+
+           
+            }
+
+        useEffect(()=>{ animation()},[])
+
     return (
         <div>
             <div className="alt-banner color-first">
@@ -65,25 +68,24 @@ const About = () => {
                        <h3 className="study-subtitle">UTN</h3>
                        <p>Estudie un curso de desarrollo web, donde vimos como utilizar herramientas de Diseño tales como Photoshop, Ilustrator entre otros.. <br/> Tambien vimos programacion usando el Stack Lamp(Linux, Apache, Mysql y Php), tambien usamos el Framework  de Angular como tecnologia del front-end </p>
                        <h3 className="study-subtitle">EDteam</h3>
-                       <p>Luego de terminar el curso complete mis conocimientos en el desarrollo web usando la plataforma de estudio virtual EDteam.<br/> Estudie la Especialidad de React un curso completo <br/> Servidores Linux <br/> Estudie Amazon Web Services donde aprendi a usar los servicios de EC2, Route53 , IAM, S3, etc.. </p>
+                       <p>Luego de terminar el curso complete mis conocimientos en el desarrollo web usando la plataforma de estudio virtual EDteam.<br/> Estudie la Especialidad de React un curso completo <br/> Servidores Linux con Apache2 y Ngnix<br/> Estudie Amazon Web Services donde aprendi a usar los servicios de EC2, Route53 , IAM, S3, etc.. </p>
                    </div>
                </div>
 
             </section> 
-              <div className="title rotateIn"><h2>HABILIDADES</h2></div>
-            <section className="abilities " ref={ref}>
+              <div className="title"><h2>HABILIDADES</h2></div>
+            <section className="abilities "   id="animates" ref={animate}>
                { Language.map((leng,i)=>(
                    
                     <div className="abilities-card" key={i}>
                     <div className="abilities-box">
                 <div className="abilities-percent">
                     <div className="rotate"  >
-                   {
-                       visible ?
+                   {  visible ?
                        <svg className="svg" >
                     <circle cx="70" cy="70" r="70"></circle>
                     <circle cx="70" cy="70" r="70"></circle>
-                </svg> :null
+                </svg> :<p>loading</p>
                    }
                 </div>
                 <div className="abilities-number">
@@ -100,13 +102,12 @@ const About = () => {
                    <div className="abilities-box">
                <div className="abilities-percent">
                    <div className="rotate">
-                     {
-                         visible?
+                     {  visible ?
                          <svg className="svg" >
                     <circle cx="70" cy="70" r="70"></circle>
                     <circle cx="70" cy="70" r="70"></circle>
-                </svg>:null
-                     }
+                </svg>:<p>loading..</p>
+                     }  
                </div>
                <div className="abilities-number">
                    <h2>{fram.percent}<span>{fram.simbol}</span> </h2>

@@ -11,7 +11,7 @@ This boilerplate is based in ITCSS and SMACSS
 // Components / modules 
 //@import './components/user';
 //@import './components/logo';
-@import './components/menu';
+//@import './components/menu';
 @import './components/header';
 @import './components/footer';
 @import './components/banner';
@@ -20,12 +20,17 @@ This boilerplate is based in ITCSS and SMACSS
 @import './components/study';
 @import './components/abilities';
 @import './components/buttons';
+@import './components/page404';
+@import './components/forms';
+@import './components/menu';
+@import './components/social-media';
 
 // Layout 
 @import './layout/layout';
 
 // Pages
  @import './pages/home';
+ @import './pages/contact';
  
 
 // Theme
