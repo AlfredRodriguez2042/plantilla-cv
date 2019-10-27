@@ -1,6 +1,6 @@
 import React from 'react'
 import { Field, Form, Formik, withFormik} from 'formik'
-import Icon from 'react-multiple-icons'
+
 
 const Contact = (props) => {
     const { isSubmiting, isValid, values,  handleChange} = props
